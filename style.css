@@ -164,7 +164,7 @@ p{
 
 .about__jobs{
   text-align: left;
-  justify-content: center;
+
 }
 
 .about__job{
@@ -178,6 +178,21 @@ p{
 
 .job__content{
   display: inline-block;
+
+}
+
+#skills{
+  text-align: center;
   
 }
 
+
+
+.skillset__left,
+.skillset__right{
+  display: inline-block;
+}
+
+.skillset__left{
+  
+}
