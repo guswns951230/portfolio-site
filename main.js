@@ -44,8 +44,11 @@ homecontactBtn.addEventListener('click', ()=>{
 
 //scrolling이 될수록 home이 점점 투명해짐
 
-const homefadeout = docoument.querySelector();
+const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 window.addEventListener('scroll', () => {
-    
+    // console.log(`homeHeight: ${homeHeight}`);
+    // console.log(1 - window.scrollY/homeHeight);
+    home.style.opacity = 1 - window.scrollY/homeHeight;
+
 });
