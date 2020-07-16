@@ -1,20 +1,25 @@
 /* Global */
-:root{
+:root {
   /* Color */
-  --color-white:  #ffffff;
+  --color-white: #ffffff;
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
-  --color-pink:   #fe918d;
-  --color-dark-pink:  #ff6863;
-  --color-dark-grey:  #4d4d4d;
-  --color-grey:   #616161;
-  --color-light-grey: #7c7979;
-  --color-blue:   #73aace;
+  --color-pink: #fe918d;
+  --color-light-pink: #ffc0cb;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #a5a8ad;
+  --color-blue: #73aace;
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
-  --color-black:  #2c2c2c;
+  --color-black: #2c2c2c;
+  --color-ivory: #f8eec6;
+  --color-light-ivory: #f8f8e9;
+  --color-light-green: #65c19c;
 
   /* Font size */
+  --font-x_large: 58px;
   --font-large: 48px;
   --font-medium: 28px;
   --font-regular: 18px;
@@ -33,56 +38,60 @@
   --animation-duration: 300ms;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   cursor: default;
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--color-black);
 }
 
-ul{
+ul {
   margin: 0;
   padding: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
-h1{
+h1 {
   font-size: var(--font-large);
   font-weight: var(--weight-bold);
   margin: 16px 0;
 }
 
-h2{
+h2 {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
   margin: 12px 0;
 }
 
-h3{
+h3 {
   font-size: var(--font-regular);
   font-weight: var(--weight-regular);
   margin: 8px 0;
 }
 
-p{
+p {
   color: var(--color-black);
   font-size: var(--font-regular);
   font-weight: var(--weight-regular);
-  margin: 4px 0;
+  margin: 5px 0;
 }
 
-section{
+section {
+  padding: 50px 0;
+  /* max-width: 1200px;
+  margin: 0 auto; */
   text-align: center;
   /* section class의 text/inline-block/inline 요소를 중앙으로 정렬 */
 }
@@ -91,7 +100,8 @@ section{
   outline: 0;
 } */
 
-#header{
+/* header */
+#header {
   background-color: transparent;
   height: 44px;
   display: flex;
@@ -100,133 +110,373 @@ section{
   align-items: center;
   position: fixed;
   width: 100%;
+  transition: background-color var(--animation-duration) ease-in-out;
+  z-index: 1; /* 항상 위에 표시 */
 }
 
-.header__logo a{
+#header.header--dark{
+  background-color: var(--color-pink);
+}
+
+.header__logo a {
   color: var(--color-white);
 }
 
-.header__menu{
-  display: flex;
+.header__logo i {
+  font-size: var(--font-medium);
 }
 
-.header__item a{
+.header__logo i:hover {
+  transform: scale(1.1);
+  transition: all var(--animation-duration) ease;
+}
+
+.header__menu {
+  display: flex;
+  cursor: pointer;
+}
+
+.header__item {
   padding: 0 10px;
   color: var(--color-white);
 }
 
-/* home */
-#home{
-  background-image: url("images/homebackground.png");
-  padding: 30px 0;
-  padding-top: 44px;
+.header__item:hover {
+  border: 1px solid var(--color-white);
+  background-color: var(--color-light-pink);
+  border-radius: 5px;
 }
 
-.home__avatar{
+.header__item :active {
+  border-radius: 5px;
+}
+
+.header__toggle-button {
+  position: absolute;
+  right: 32px; /* 오른쪽으로 32px 이동*/
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-white);
+  background-color: transparent;
+  border: transparent;
+  display: none;
+  outline: none;
+}
+
+.header__toggle-button:hover {
+  transform: scale(1.1);
+  transition: all var(--animation-duration) ease;
+}
+
+/* home */
+#home {
+  background: url("images/homebackground.png") center/cover no-repeat;
+  /* background img를 중앙위치하고 반응형으로 이미지가 반복되지 않게 설정*/
+}
+
+.home__avatar {
   border-radius: 50%;
   width: 200px;
   height: 200px;
   border: 3px solid var(--color-white);
 }
 
-.home__title{
+.home__title {
   color: var(--color-white);
 }
 
-.home__description{
+.home__description {
   color: var(--color-white);
+  margin-bottom: 30px;
 }
-
-.home__contact{
+ 
+.home__contact {
   color: var(--color-white);
   cursor: pointer;
   border: none;
-  border-radius: 0;
+  outline: none;
+  border-radius: 5px;
   background-color: transparent;
   border: 1.5px solid var(--color-white);
-  padding: 5px;
-  outline: none;
+  padding: 8px 12px;
 }
 
+/* About */
+.about__description {
+  margin-bottom: 40px;
+}
 
-
-.about__majors{
+.about__majors {
   display: flex;
-  justify-content: center;
-
+  justify-content: space-evenly;
+  margin-bottom: 70px;
 }
 
-.about__major img{
-   border-radius: 50%;
-   width: 150px;
-   height: 150px;
-   border: 1px solid var(--color-blue);
+.about__major i {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  /* border: 1px solid var(--color-blue); */
+  font-size: 60px;
+  color: var(--color-blue);
+  line-height: 150px;
+  /* line-height를 높이만큼 주면 중앙에 위치 */
+  transition: all var(--animation-duration) ease;
+  /* 모든 속성값을 300ms동안 ease옵션으로 애니메이션 */
 }
 
-.about__jobs{
+.about__major i:hover {
+  color: var(--color-pink);
+  /* font-size: var(--font-x_large); */
+  transform: /*rotate(-30deg)*/ scale(1.1);
+}
+
+.about__jobs {
   text-align: left;
-  
 }
 
-.about__job{
-  margin: 30px 0;
+.about__job {
+  margin: 15px 0;
   display: flex;
+  align-items: center;
 }
 
-
-
-.job__logo{
+.job__logo {
+  margin: auto 0;
   width: 50px;
   height: 50px;
-  vertical-align: middle;
 }
 
-.work__categories{
+.job__content {
+  margin: 0 16px;
+}
+
+/* skills */
+#skills {
+  background-color: var(--color-ivory);
+}
+
+.skills__description {
+  margin-bottom: 15px;
+}
+
+.skills__skillset {
   display: flex;
-  justify-content: center;
-  margin: 30px 0;
+  background-color: var(--color-light-grey);
+  width: 60%;
+  margin: 20px auto;
+  color: var(--color-white);
 }
 
-.category__button{
-  width: 100px;
-  border: none;
+.skillset__left {
+  flex-basis: 60%;
+  background-color: var(--color-dark-grey);
+  padding: 20px 40px;
+}
+
+.skill {
+  margin-bottom: 32px;
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill__bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-grey);
+}
+
+.skill__value {
+  /* width: 90%; 
+      css에서 width를 정의 하면 모든 value에 똑같이 적용 되므로 
+      %수치는 html에서 정의해 준다*/
+  height: 3px;
+  background-color: var(--color-orange);
+}
+
+.skillset__right {
+  flex-basis: 40%;
+}
+
+.tools,
+.etcs {
+  padding: 20px;
+}
+
+.tools {
+  background-color: var(--color-grey);
+}
+
+.tools__item {
+  margin-bottom: 12px;
+}
+
+/* work */
+.section__container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.category__button {
+  font-size: var(--font-regular);
   background-color: transparent;
   border: 1px solid var(--color-light-grey);
   border-radius: 5px;
   cursor: pointer;
-  padding: 5px;
+  padding: 5px 32px;
+  outline: none;
 }
 
-.work__categories :hover{
+.work__categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.work__categories :hover,
+.work__categories :active {
   background-color: var(--color-pink);
   color: var(--color-white);
   border-radius: 5px;
 }
 
-.work__projects img{
-  width: 250px;
-  height: 250px;
-}
-
-.work__projects{
+.work__projects {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
-  max-width: 1000px;
-  margin: 0 auto;
   justify-content: center;
 }
 
-.testimonials__testimonial{
-  text-align: left;
+.work__project {
+  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-light-white);
+  width: 200px;
+  height: 250px;
+  margin: 5px;
 }
 
-.testimonial__avatar{
-  width: 150px;
-  height: 150px;
-  vertical-align: middle;
+.work__project img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* testimonials */
+#testimonials {
+  background-color: var(--color-light-white);
+}
+
+.testimonials {
+  margin: 50px 0;
+}
+
+.testimonials__testimonial {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.testimonial__avatar {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 40px;
+}
 
+.testimonial__avatar:nth-child(even) {
+  margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+  background-color: var(--color-light-ivory);
+  border-radius: 5px;
+  margin: auto 0;
+  padding: 15px;
+}
+
+.speech-bubble__name a {
+  color: var(--color-dark-pink);
+}
+
+/* contact */
+#contact {
+  background-color: var(--color-pink);
+
+  color: var(--color-white);
+}
+
+.contact__links {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.contact__link a {
+  color: var(--color-white);
+  font-size: var(--font-large);
+  margin: 0 5px;
+}
+
+.contact__link i:hover {
+  color: var(--color-yellow);
+  transform: scale(1.1);
+  transition: all var(--animation-duration) ease;
+}
+
+.contact__rights {
+  color: var(--color-white);
+  margin: 10px 0;
+}
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .header__toggle-button {
+    display: block; /* width가 768px 이하일때 button 표시*/
+  }
+
+  #header {
+    flex-direction: column; /* 축을 수평에서 수직으로 바꿔줌 */
+    align-items: flex-start; /* flex-box 시작점에 위치하도록 설정*/
+  }
+
+  .header__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%; /*기본 넓이가 좁아 정렬되지 않으므로 100%로 조정해준다 */
+    display: none; /*toggle button을 active할 때 보여줘야 하므로 none 설정 */
+  }
+
+  .header__item {
+    margin-bottom: 10px;
+  }
+
+  .about__majors {
+    flex-direction: column;
+  }
+
+  .major {
+    margin-bottom: 40px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1; /* 자동으로 화면을 가득 채워준다 */
+  }
+
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
+}

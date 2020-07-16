@@ -8,8 +8,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=
-    , initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
             integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
@@ -24,33 +23,38 @@
             <a href="#"><i class="fab fa-accusoft"></i></a>
         </div>
         <ul class="header__menu">
-            <li class="header__item">
-                <a href="#" class="header__link">Home</a>
+            <li class="header__item" data-link="#home">Home</li>
+            <li class="header__item" data-link="#about">
+                About
             </li>
-            <li class="header__item">
-                <a href="#" class="header__link">About</a>
+            <li class="header__item" data-link="#skills">
+                Skills
             </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Skills</a>
+            <li class="header__item" data-link="#work">
+                Mywork
             </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Mywork</a>
+            <li class="header__item" data-link="#testimonials">
+                Testimonials
             </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Testimonials</a>
-            </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Contact</a>
+            <li class="header__item" data-link="#contact">
+                Contact
             </li>
         </ul>
+
+        <!-- Toggle button -->
+        <button class="header__toggle-button">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <!-- home -->
     <section id="home">
-        <img src="images/hulk.jpg" alt="" class="home__avatar">
-        <h1 class="home__title">Hello, <br />I'm Kang HJ</h1>
-        <h2 class="home__description">A software Engineer currently residing in Busan, Korea</h2>
-        <button class="home__contact">CONTACT ME</button>
+        
+            <img src="images/hulk1.jpeg" alt="" class="home__avatar">
+            <h1 class="home__title">Hello, <br />I'm Kang HJ</h1>
+            <h2 class="home__description">A software Engineer currently residing in Busan, Korea</h2>
+            <button class="home__contact">CONTACT ME</button>
+        
     </section>
 
     <!-- about -->
@@ -61,19 +65,19 @@
             sequi quia temporibus veritatis ullam?</p>
         <ul class="about__majors">
             <li class="about__major major">
-                <img src="images/hulk.jpg" alt="" class="major__icon">
+                <i class="fab fa-html5"></i>
                 <h2 class="major__title">Front-end</h2>
                 <p class="major__description">HTML, CSS, Java Script, Type Script,
                     <br />React, Vue, Web APIs</p>
             </li>
             <li class="about__major major">
-                <img src="images/hulk.jpg" alt="" class="major__icon">
+                <i class="fas fa-mobile-alt"></i>
                 <h2 class="major__title">Mobile</h2>
                 <p class="major__description">Android, iOS, React Native, Flutter,
                     <br />java, Swift, Kotlin</p>
             </li>
             <li class="about__major major">
-                <img src="images/hulk.jpg" alt="" class="major__icon">
+                <i class="fas fa-server"></i>
                 <h2 class="major__title">Back-end</h2>
                 <p class="major__description">Java, JavaScript, Go, NodeJS,
                     <br />Rest APIs, GraghGL</p>
@@ -113,8 +117,8 @@
                             <span class="skill__name">HTML</span>
                             <span class="skill_persentage">90%</span>
                         </div>
-                        <div class="skill__bar-wrapper">
-                            <div class="skill__bar"></div>
+                        <div class="skill__bar">
+                            <div class="skill__value" style="width: 90%;"></div>
                         </div>
                     </li>
                     <li class="skillset__skill skill">
@@ -122,8 +126,8 @@
                             <span class="skill__name">CSS</span>
                             <span class="skill_persentage">95%</span>
                         </div>
-                        <div class="skill__bar-wrapper">
-                            <div class="skill__bar"></div>
+                        <div class="skill__bar">
+                            <div class="skill__value" style="width: 95%;"></div>
                         </div>
                     </li>
                     <li class="skillset__skill skill">
@@ -131,8 +135,8 @@
                             <span class="skill__name">JAVASCRIPT</span>
                             <span class="skill_persentage">85%</span>
                         </div>
-                        <div class="skill__bar-wrapper">
-                            <div class="skill__bar"></div>
+                        <div class="skill__bar">
+                            <div class="skill__value" style="width: 85%;"></div>
                         </div>
                     </li>
                 </ul>
@@ -145,9 +149,7 @@
                         <li class="tools__item">iOS developement tools</li>
                         <li class="tools__item">Sublime Text with Plug-ings</li>
                         <li class="tools__item">Visual Studio</li>
-                        <li class="tools__item">Team Foundation</li>
-                        <li class="tools__item">Adobe Programs</li>
-                        <li class="tools__item">Sketch app</li>
+
                     </ul>
                 </div>
                 <div class="skillset__etcs etcs">
@@ -162,7 +164,8 @@
 
     <!-- work -->
     <section id="work" class="section">
-        <h1 class="work__title">My work</h1>
+        <div class="section__container">
+            <h1 class="work__title">My work</h1>
         <p class="work__description">Projects</p>
         <ul class="work__categories">
             <li class="work__category category">
@@ -204,6 +207,7 @@
                 <img src="images/hulk.jpg" alt="" class="project__img">
             </li>
         </ul>
+        </div>
     </section>
 
     <!-- testimonials -->
@@ -214,7 +218,7 @@
 
         <ul class="testimonials">
             <li class="testimonials__testimonial testimonial">
-                <img src="/images/hulk.jpg" alt="" class="testimonial__avatar">
+                <img src="images/hulk1.jpeg" alt="" class="testimonial__avatar">
                 <div class="testimonial__speech-bubble speech-bubble">
                     <p class="speech-bubble__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Enim necessitatibus incidunt recusandae impedit, placeat natus fugiat.</p>
@@ -224,7 +228,6 @@
                 </div>
             </li>
             <li class="testimonials__testimonial testimonial">
-                <img src="/images/hulk.jpg" alt="" class="testimonial__avatar">
                 <div class="testimonial__speech-bubble speech-bubble">
                     <p class="speech-bubble__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
                         necessitatibus incidunt recusandae impedit, placeat natus fugiat.</p>
@@ -232,6 +235,7 @@
                         <a href="#" class="speech-bubble__link">KangHJ</a>/TigerSpike
                     </p>
                 </div>
+                <img src="images/hulk1.jpeg" alt="" class="testimonial__avatar">
             </li>
         </ul>
     </section>
@@ -242,14 +246,12 @@
         <h2 class="contact__e-mail">rkdguswns0803@gmail.com</h2>
         <ul class="contact__links">
             <li class="contact__link">
-                <a href="#">icon</a>
-            </li>
-            <li class="contact__link">
-                <a href="#">icon</a>
+                <a href="#"><i class="fab fa-github"></i></a>
             </li>
         </ul>
         <p class="contact__rights">2020 CUP</p>
     </section>
+    <script src="main.js" defer></script>
 </body>
 
 </html>
