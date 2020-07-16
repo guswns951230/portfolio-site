@@ -13,11 +13,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// scrollIntoview()
-function scrollIntoViews(selector){ //selector만 일치하면 이동할 수 있게 함수를 지정
-    const scrollTo = document.querySelector(selector); //selector의 요소를 찾는다.
-    scrollTo.scrollIntoView({behavior: 'smooth'}); // 'smooth'하게 이동
-}
 
 //Handle scrolling whe tapping on the header menu
 // 1. 메뉴를 누른다
@@ -50,5 +45,27 @@ window.addEventListener('scroll', () => {
     // console.log(`homeHeight: ${homeHeight}`);
     // console.log(1 - window.scrollY/homeHeight);
     home.style.opacity = 1 - window.scrollY/homeHeight;
-
+    
 });
+
+// Arrow up button
+// scrolling 되어 내려오면 arrow up button을 나타나게 하여
+// 어디서든 이 버튼을 누르면 가장 위로 올라감
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if(window.scrollY > homeHeight/2){
+        arrowUp.classList.add('visible');
+    }else {
+        arrowUp.classList.remove('visible');
+    }
+});
+
+arrowUp.addEventListener('click', () => {
+    scrollIntoViews('#home');
+});
+
+// scrollIntoview()
+function scrollIntoViews(selector){ //selector만 일치하면 이동할 수 있게 함수를 지정
+    const scrollTo = document.querySelector(selector); //selector의 요소를 찾는다.
+    scrollTo.scrollIntoView({behavior: 'smooth'}); // 'smooth'하게 이동
+}

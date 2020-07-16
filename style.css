@@ -163,6 +163,7 @@ section {
   outline: none;
 }
 
+
 .header__toggle-button:hover {
   transform: scale(1.1);
   transition: all var(--animation-duration) ease;
@@ -191,7 +192,7 @@ section {
   color: var(--color-white);
   margin-bottom: 30px;
 }
- 
+
 .home__contact {
   color: var(--color-white);
   cursor: pointer;
@@ -293,8 +294,8 @@ section {
 
 .skill__value {
   /* width: 90%; 
-      css에서 width를 정의 하면 모든 value에 똑같이 적용 되므로 
-      %수치는 html에서 정의해 준다*/
+  css에서 width를 정의 하면 모든 value에 똑같이 적용 되므로 
+  %수치는 html에서 정의해 준다*/
   height: 3px;
   background-color: var(--color-orange);
 }
@@ -412,7 +413,7 @@ section {
 /* contact */
 #contact {
   background-color: var(--color-pink);
-
+  
   color: var(--color-white);
 }
 
@@ -439,44 +440,66 @@ section {
   margin: 10px 0;
 }
 
+/* Scroll */
+.arrow-up{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  font-size: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--color-pink);
+  border: transparent;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: none;
+  transition: opacity var(--animation-duration)ease-in-out;
+}
+
+.arrow-up.visible{
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
   .header__toggle-button {
     display: block; /* width가 768px 이하일때 button 표시*/
   }
-
+  
   #header {
     flex-direction: column; /* 축을 수평에서 수직으로 바꿔줌 */
     align-items: flex-start; /* flex-box 시작점에 위치하도록 설정*/
   }
-
+  
   .header__menu {
     flex-direction: column;
     text-align: center;
     width: 100%; /*기본 넓이가 좁아 정렬되지 않으므로 100%로 조정해준다 */
     display: none; /*toggle button을 active할 때 보여줘야 하므로 none 설정 */
   }
-
+  
   .header__item {
     margin-bottom: 10px;
   }
-
+  
   .about__majors {
     flex-direction: column;
   }
-
+  
   .major {
     margin-bottom: 40px;
   }
-
+  
   .skillset {
     flex-direction: column;
   }
-
+  
   .project {
     flex-grow: 1; /* 자동으로 화면을 가득 채워준다 */
   }
-
+  
   .testimonial__avatar {
     width: 80px;
     height: 80px;
