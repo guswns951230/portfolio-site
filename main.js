@@ -64,6 +64,34 @@ arrowUp.addEventListener('click', () => {
     scrollIntoViews('#home');
 });
 
+//My work category를 누르면 해당 카테고리의 item만 보이게
+//html data를 이용
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.work__project');
+workBtnContainer.addEventListener('click', (e) => {
+    const filter = e.target.dataset.filter; // || e.target.parentNode.dataset.filter; 만약 filter가 없다면 부모노드의 dataset filter값을 받아 오겟다.work__projects
+    if(filter == null){
+        return; //filter가 null이라면 아무 행동도 취하지 않겟다.
+    }
+    projectContainer.classList.add('anim-out');
+    setTimeout(() => {
+        projects.forEach((work__project) => {
+            // console.log(work__project.dataset.type);
+            if(filter ==='*' || filter === work__project.dataset.type){
+                work__project.classList.remove('invisible');
+            }else{
+                work__project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('anim-out');
+    }, 300)
+});
+
+
+
+
+
 // scrollIntoview()
 function scrollIntoViews(selector){ //selector만 일치하면 이동할 수 있게 함수를 지정
     const scrollTo = document.querySelector(selector); //selector의 요소를 찾는다.
