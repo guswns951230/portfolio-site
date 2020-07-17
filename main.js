@@ -25,7 +25,14 @@ headerMenu.addEventListener('click', (event) => {
     if(link==null){
         return;
     }
+    headerMenu.classList.remove('open');
     scrollIntoViews(link);
+});
+
+// header toggle botton을 누르면 headermenu가 내려온다
+const headerToggleBotton = document.querySelector('.header__toggle-button');
+headerToggleBotton.addEventListener('click', () => {
+    headerMenu.classList.toggle('open');
 });
 
 //contact me 를 눌렀을 떄 contact section으로 이동
@@ -74,6 +81,11 @@ workBtnContainer.addEventListener('click', (e) => {
     if(filter == null){
         return; //filter가 null이라면 아무 행동도 취하지 않겟다.
     }
+    //클릭한 버튼이 표시가 되게
+    const active = document.querySelector('.category__button.selected');
+    active.classList.remove('selected');
+    e.target.classList.add('selected');
+
     projectContainer.classList.add('anim-out');
     setTimeout(() => {
         projects.forEach((work__project) => {
@@ -87,6 +99,7 @@ workBtnContainer.addEventListener('click', (e) => {
         projectContainer.classList.remove('anim-out');
     }, 300)
 });
+
 
 
 
