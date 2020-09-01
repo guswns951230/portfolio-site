@@ -160,7 +160,7 @@ section {
   cursor: pointer;
   font-size: 24px;
   color: var(--color-white);
-  background-color: transparent;
+  background-color: transparent; 
   border: transparent;
   display: none;
   outline: none;
@@ -205,6 +205,10 @@ section {
   background-color: transparent;
   border: 1.5px solid var(--color-white);
   padding: 8px 12px;
+}
+
+.home__contact:hover{
+  background-color: var(--color-orange);
 }
 
 /* About */
@@ -377,11 +381,48 @@ section {
   background-color: var(--color-light-white);
   width: 200px;
   height: 250px;
-  margin: 5px;
-  
-
+  margin: 2px;
 }
 
+.project__description{
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--animation-duration) ease-in;
+}
+
+.work__project:hover .project__description{
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+
+.project__description h3{
+  color: var(--color-orange);
+}
+
+.project__description h3::after{
+  content: '';
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  margin-top: 8px;
+  margin-left: -12px;
+  background-color: var(--color-dark-white);
+}
+
+.project__description span{
+  color: var(--color-white);
+}
 
 .work__project.invisible{
   display: none;
@@ -479,6 +520,8 @@ section {
   transition: opacity var(--animation-duration)ease-in-out;
 }
 
+
+
 .arrow-up.visible{
   opacity: 1;
   pointer-events: auto;
@@ -493,6 +536,11 @@ section {
   #header {
     flex-direction: column; /* 축을 수평에서 수직으로 바꿔줌 */
     align-items: flex-start; /* flex-box 시작점에 위치하도록 설정*/
+    background-color: var(--color-pink);
+  }
+
+  #hearder.header--dark{
+    padding: 16px;
   }
   
   .header__menu {
@@ -500,6 +548,10 @@ section {
     text-align: center;
     width: 100%; /*기본 넓이가 좁아 정렬되지 않으므로 100%로 조정해준다 */
     display: none; /*toggle button을 active할 때 보여줘야 하므로 none 설정 */
+  }
+
+  .header__menu.open{
+    display: block;
   }
   
   .header__item {
